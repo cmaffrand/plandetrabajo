@@ -3,11 +3,8 @@
 %codirector, % Uncomment to add a codirector to the title page
 ]{charter} 
 
-
-
-
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Cadenas de procesamiento reconfigurables en SoC/MPSoC} 
+\titulo{Cadenas de procesamiento re-configurables en SoC/MPSoC} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 \posgrado{Carrera de Especialización en Sistemas Embebidos} 
@@ -49,7 +46,6 @@
 \thispagestyle{empty}
 \pagebreak
 
-
 \thispagestyle{empty}
 {\setlength{\parskip}{0pt}
 \tableofcontents{}
@@ -66,10 +62,10 @@
 \centering
 \begin{tabularx}{\linewidth}{@{}|c|X|c|@{}}
 \hline
-\rowcolor[HTML]{C0C0C0} 
-Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
+\rowcolor[HTML]{EBEBEB} 
+Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{EBEBEB}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
-%1      & Se completa hasta el punto 4 inclusive                 & dd/mm/aaaa \\ \hline
+1      & Se genera la primera versión de los incisos 1, 2, 3, 4 y 5.                 & 04 de julio de 2021 \\ \hline
 %2      & Se completa hasta el punto 7 inclusive
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
@@ -81,8 +77,6 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 
 \pagebreak
 
-
-
 \section*{Acta de constitución del proyecto}
 \label{sec:acta}
 
@@ -92,7 +86,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en \textcolor{black}{implementar un sistema que permita seleccionar bloques de procesamiento previamente generados, realizar una reconfiguración dinámica en lógica programable y ofrecer un entorno de pruebas para el filtro seleccionado. Este entorno de pruebas debe ser capaz de generar una onda de excitación para el filtro, adquirir los datos filtrados y generar reportes de pruebas. Este desarrollo tiene como finalidad evaluar el uso de bancos de filtros mediante reconfiguración dinámica de lógica programable para aplicaciones satelitales y de radar}, y tendrá un presupuesto preliminar estimado de \textcolor{red}{600} hs de trabajo y \textcolor{red}{\$XXX}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en \textcolor{black}{implementar un sistema que permita seleccionar bloques de procesamiento almacenado en memoria, realizar una re-configuración dinámica en lógica programable y ofrecer un entorno de pruebas para el filtro seleccionado. Este entorno de pruebas debe ser capaz de generar una onda de excitación para el filtro, adquirir los datos filtrados y generar reportes de pruebas. Este desarrollo tiene como finalidad evaluar el uso de bancos de filtros mediante reconfiguración dinámica de lógica programable para aplicaciones satelitales y de radar}, y tendrá un presupuesto preliminar estimado de \textcolor{red}{600} hs de trabajo y \textcolor{red}{\$ 0}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -109,140 +103,102 @@ Se adjunta a esta acta la planificación inicial.
 \end{tabular}
 \end{table}
 
-
-
-
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
+La aplicación permite seleccionar filtros de procesamiento, previamente generados, de un banco de filtros almacenado en memoria, realizar la re-configuración dinámica y evaluar el funcionamiento del banco seleccionado. Como componente principal, el dispositivo a desarrollar cuenta con un System on Chip (SoC) o Multi Processor System on Chip (MPSoC).
 
-\begin{consigna}{red} % El bloque "consigna" se usa para poner texto en rojo y dar una pequeña ayuda sobre cómo completar la sección
+En la Figura \ref{fig:diagBloques} se muestra un diagrama de bloques en el que se observan las funcionalidades principales de la aplicación a desarrollar. De la misma, se desprende que el objetivo de la aplicación es generar un entorno de software-HDL que permita la selección de bancos de filtros que re-configuran la lógica programable del SoC/MPSoC.
 
-El objetivo es que el lector en una o dos páginas entienda de qué se trata el proyecto y cuáles son sus desafíos, su motivación y su importancia.
-
-Se debe destacar claramente cuál es el valor que agrega el proyecto a realizar. ``El presente proyecto se destaca especialmente por incorporar tal cosa... Esto lo diferencia de otros sistemas similares en que ...''
-
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
-
-\begin{itemize}
-	\item ¿Cómo se vincula este proyecto con la misión de la organización?
-	\item ¿Cómo se inserta este proyecto en el modelo de negocio de la organización?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está el producto que se desea reemplazar o mejorar?
-	\item ¿Cuáles son las necesidades que debe satisfacer?
-	\item ¿Por dónde pasa la innovación?
-\end{itemize}
-
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y una frase como la siguiente: ``En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''. Luego recién más abajo de haber puesto esta frase, se pone la figura. La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
-
-%\vspace{25px}
-
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=1\textwidth]{./Figuras/DiagamaCPR.pdf}
+\begin{figure}[H]
+\raggedleft
+\includegraphics[width=1.05\textwidth]{./Figuras/DiagamaCPR_grande.pdf}
 \caption{Diagrama en bloques del sistema}
 \label{fig:diagBloques}
 \end{figure}
 
-\vspace{25px}
+En los desarrollos tecnológicos, tanto aeroespaciales como de radares, es muy frecuente la utilización de procesamiento digital de las señales en dispositivos de lógica programable. En consecuencia, dado los elevados costos de los lanzamientos, las misiones espaciales y los desarrollos de defensa es necesaria la utilización eficiente de los recursos. Por lo que, mediante la re-configuración parcial, se podría reducir el número de dispositivos de lógica programable utilizados en futuros desarrollos.
 
-El tamaño de la tipografía en TODAS las figuras debe ser adecuado para que NO pase lo que ocurre acá, donde el lector debe esforzarse para poder leer el texto. Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama, preferentemente en la gama de colores pastel.
-\end{consigna}
+El sistema propuesto en este plan de trabajo permitirá hacer una evaluación del uso de técnicas de re-configuración dinámica parcial en dispositivos de lógica programable para aplicaciones espaciales y de defensa.
 
+El entorno de pruebas se debe implementar haciendo uso de un kit de desarrollo que contenga un SoC o MPSoC de serie 7 o superior de la marca Xilinx. Por lo que, se debe establecer los mecanismos de re-configuración mediante el entorno de desarrollo Vivado.
 
+El dispositivo debe constar de los principales bloques constitutivos:
+\begin{itemize}
+	\item Interfaz de usuario (UI): debe proveer al operador un modo de configurar el filtro de procesamiento empleado en el dispositivo, disparar la ejecución de pruebas y obtener los archivos de reporte. Adicionalmente, el operador debe poder actualizar los archivos que conforman el banco de filtros con los que se puede configurar la lógica programable (PL).
+	\item Sistema de procesamiento (PS): debe contar con un sistema operativo que permita la ejecución de diferentes aplicaciones. Las mismas tienen como funcionalidades principales: controlar los periféricos del procesador, realizar la re-configuración de la PL, generar y administrar los reportes de pruebas, administrar el banco de filtros, configurar las pruebas a realizar y gestionar la comunicación con la PL mediante el bus AXI.
+	\item Lógica programable (PL): en la misma se debe disponer de una parte estática donde se instale un core de generación de estímulos y adquisición de datos para la realización de las pruebas sobre los filtros. Por otro lado, en la PL debe existir una sección configurable donde se deben instanciar los bloques de procesamiento.
+	\item Memoria estática (SD): espacio de memoria donde se se deben almacenar el banco de filtros, los reportes de las pruebas ejecutadas, archivos de configuración del sistema y los datos de las pruebas recientemente realizadas por el usuario.
+	\item Memoria RAM: a ser utilizada para la generación de reportes.
+\end{itemize}
+
+ 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
 
-\begin{consigna}{red} 
-Nota: (borrar esto y todas las consignas en color rojo antes de entregar este documento).
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos.
- 
-Si se considera que una persona cumple dos o más roles, entonces sólo dejarla en el rol más importante. Por ejemplo:
-
-\begin{itemize}
-\item Si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente.
-\item Si una persona es el Responsable, no debe ser colocado también como Miembro del equipo.
-\end{itemize}
-
-Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por ejemplo.
-
 \begin{table}[ht]
-%\caption{Identificación de los interesados}
-%\label{tab:interesados}
+\begin{center}
 \begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
 \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{EBEBEB} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
+%Auspiciante   &  - 				  & -              	& -        	\\ \hline
+Cliente       & \clientename      &\empclientename	& -       	\\ \hline
+Impulsor      & - &\empclientename 	& -       	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
+%Colaboradores & -                 & -             	& -       	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director Trabajo final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+%Equipo        & -			      & -            	& -       	\\ \hline
+%Opositores    & -                 & -            	& -      	\\ \hline
+Usuario final & -                 & \empclientename	& -       	\\ \hline
 \end{tabularx}
+\caption{Identificación de los interesados}
+\label{tab:interesados}
+\end{center}
 \end{table}
 
-El Director suele ser uno de los Orientadores.
-
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
-
-Es deseable listar a continuación las principales características de cada interesado.
- 
-Por ejemplo:
 \begin{itemize}
-	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
-	\item Orientador: María Gómez va a poder ayudar mucho con la definición de los requerimientos.
+	\item Cliente: profesional altamente calificado en la industria aeroespacial y defensa.
+	\item Orientador: \supname, no va a estar disponible hasta Octubre de 2021 y probablemente luego de esa fecha esté viviendo en Europa, por lo que hay que tener en cuenta ese hecho cuando se decida contactarlo.
+	\item Usuario final: profesional que aún no está definido por \empclientename.
 \end{itemize}
-
-\end{consigna}
-
-
 
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red}
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
-
-Se recomienda que sea solo un párrafo que empiece diciendo ``El propósito de este proyecto es...''.
-\end{consigna}
+El propósito de este proyecto es realizar una evaluación tecnológica de la re-configuración dinámica de dispositivos de lógica programable, con el fin de establecer criterios de uso para desarrollos aeroespaciales y de radares. Adicionalmente, el cliente desea adquirir las capacidades de desarrollar una aplicación con esa tecnología de modo de subir el Technology Readiness Level (TRL) que se posee dentro de \empclientename.
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
+El proyecto descripto en este plan de trabajo deberá brindar las siguientes funcionalidades:
 
-Se refiere al trabajo a hacer para entregar el producto o resultado especificado. 
+\begin{itemize}
+	\item Administrar un banco de filtros previamente generados en un sistema de archivos.
+	\item Seleccionar el filtro que se planea utilizar.
+	\item Realizar la re-configuración parcial de la lógica programable del SoC/MPSoC, implementando el filtro previamente seleccionado.
+	\item Configurar el entorno de pruebas presente en la parte estática de la PL.
+	\item Ejecutar pruebas configuradas en las cadenas de filtros elegidas.
+	\item Adquirir los datos generados en las pruebas.
+	\item Emitir reportes sobre las pruebas ejecutadas.
+\end{itemize}
 
-Explicitar todo lo quede comprendido dentro del alcance del proyecto.
-
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
-
-\end{consigna}
-
+El presente proyecto no incluye las siguientes funcionalidades:
+\begin{itemize}
+	\item Generar archivos binarios de filtros para la configuración dinámica de la PL.
+	\item Rutinas de verificación, validación y evaluación de performance de las pruebas realizadas en los filtros configurados en la PL.
+	\item Evaluación de los tiempos de re-configuración.
+	\item Almacenamiento de grandes volúmenes de datos.
+\end{itemize}
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red}
-``Para el desarrollo del presente proyecto se supone que: ...''
+Se supone que el software correrá en una plataforma de hardware tipo System on Chip de la línea Xilinx Zynq (ARM+FPGA).
 
-\begin{itemize}
-	\item Supuesto 1
-	\item Supuesto 2...
-\end{itemize}
+El responsable del proyecto dispone de una placa ZedBoard para la realización del desarrollo, para que el banco de pruebas sea implementado en una tecnología más moderna, se debe evaluar si INVAP dispone de un hardware de desarrollo que contenga un MPSoC.
 
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
-\end{consigna}
+Se asume que se dispondrá de la plataforma de desarrollo durante el tiempo que dure el proyecto para poder depurar el diseño sobre el hardware.
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
