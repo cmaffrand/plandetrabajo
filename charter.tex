@@ -4,7 +4,7 @@
 ]{charter} 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Cadenas de procesamiento re-configurables en SoC/MPSoC} 
+\titulo{Cadenas de procesamiento re-configurables en SoC/MPSoC } 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 \posgrado{Carrera de Especialización en Sistemas Embebidos} 
@@ -14,16 +14,17 @@
 %\posgrado{Maestría en Internet de las cosas}
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
+\tituloAutor{Ing. }
 \autor{Carlos Jorge Maffrand} 
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
+\tituloDirector{Mtr. Ing. }
 \director{Gonzalo Lavigna}
 \pertenenciaDirector{FIUBA} 
-% FIXME:NO IMPLEMENTADO EL CODIRECTOR ni su pertenencia
-%\codirector{John Doe} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
-%\pertenenciaCoDirector{FIUBA}
+
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
+\tituloCliente{Mtr. Ing. }
 \cliente{Franco Alcaraz}
 \empresaCliente{INVAP}
 
@@ -66,7 +67,7 @@
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{EBEBEB}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se genera la primera versión de los incisos 1, 2, 3, 4 y 5.                 & 04 de julio de 2021 \\ \hline
-%2      & Se completa hasta el punto 7 inclusive
+2      & Se genera la primera versión de los incisos 6, 7 y 8. & 08 de julio de 2021 \\ \hline
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
 %		  Así                                                    & dd/mm/aaaa \\ \hline
@@ -86,7 +87,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en \textcolor{black}{implementar un sistema que permita seleccionar bloques de procesamiento almacenado en memoria, realizar una re-configuración dinámica en lógica programable y ofrecer un entorno de pruebas para el filtro seleccionado. Este entorno de pruebas debe ser capaz de generar una onda de excitación para el filtro, adquirir los datos filtrados y generar reportes de pruebas. Este desarrollo tiene como finalidad evaluar el uso de bancos de filtros mediante reconfiguración dinámica de lógica programable para aplicaciones satelitales y de radar}, y tendrá un presupuesto preliminar estimado de \textcolor{red}{600} hs de trabajo y \textcolor{red}{\$ 0}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá en \textcolor{black}{implementar un sistema que permita seleccionar bloques de procesamiento almacenado en memoria, realizar re-configuración dinámica en lógica programable y ofrecer un entorno de pruebas para el filtro seleccionado. Este entorno de pruebas debe ser capaz de generar una onda de excitación para el filtro, adquirir los datos filtrados y generar reportes de pruebas. Este desarrollo tiene como finalidad evaluar el uso de bancos de filtros mediante re-configuración dinámica de lógica programable para aplicaciones satelitales y de radar}, y tendrá un presupuesto preliminar estimado de \textcolor{red}{600} hs de trabajo y \textcolor{red}{\$ 0}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -106,28 +107,28 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-La aplicación permite seleccionar filtros de procesamiento, previamente generados, de un banco de filtros almacenado en memoria, realizar la re-configuración dinámica y evaluar el funcionamiento del banco seleccionado. Como componente principal, el dispositivo a desarrollar cuenta con un System on Chip (SoC) o Multi Processor System on Chip (MPSoC).
-
-En la Figura \ref{fig:diagBloques} se muestra un diagrama de bloques en el que se observan las funcionalidades principales de la aplicación a desarrollar. De la misma, se desprende que el objetivo de la aplicación es generar un entorno de software-HDL que permita la selección de bancos de filtros que re-configuran la lógica programable del SoC/MPSoC.
-
-\begin{figure}[H]
-\raggedleft
-\includegraphics[width=1.05\textwidth]{./Figuras/DiagamaCPR_grande.pdf}
-\caption{Diagrama en bloques del sistema}
-\label{fig:diagBloques}
-\end{figure}
-
 En los desarrollos tecnológicos, tanto aeroespaciales como de radares, es muy frecuente la utilización de procesamiento digital de las señales en dispositivos de lógica programable. En consecuencia, dado los elevados costos de los lanzamientos, las misiones espaciales y los desarrollos de defensa es necesaria la utilización eficiente de los recursos. Por lo que, mediante la re-configuración parcial, se podría reducir el número de dispositivos de lógica programable utilizados en futuros desarrollos.
 
 El sistema propuesto en este plan de trabajo permitirá hacer una evaluación del uso de técnicas de re-configuración dinámica parcial en dispositivos de lógica programable para aplicaciones espaciales y de defensa.
 
-El entorno de pruebas se debe implementar haciendo uso de un kit de desarrollo que contenga un SoC o MPSoC de serie 7 o superior de la marca Xilinx. Por lo que, se debe establecer los mecanismos de re-configuración mediante el entorno de desarrollo Vivado.
+Las \ttitle permiten seleccionar filtros de procesamiento, previamente generados, de un banco de filtros almacenado en memoria, realizar la re-configuración dinámica y evaluar el funcionamiento del banco seleccionado. Como componente principal, el dispositivo a desarrollar cuenta con un System on Chip (SoC) o Multi Processor System on Chip (MPSoC).
+
+En la Figura \ref{fig:diagBloques} se muestra un diagrama de bloques en el que se observan las funcionalidades principales de la aplicación a desarrollar. De la misma, se desprende que el objetivo de la aplicación es generar un entorno de software-HDL que permita la selección de bancos de filtros que re-configuran la lógica programable del SoC/MPSoC.
+
+\begin{figure}[h]
+\raggedleft
+\includegraphics[width=1.05\textwidth]{./Figuras/DiagamaCPR_grande.pdf}
+\caption{Diagrama en bloques}
+\label{fig:diagBloques}
+\end{figure}
+
+El entorno de pruebas se debe implementar haciendo uso de un kit de desarrollo que contenga un SoC o MPSoC de serie 7 o superior de la marca Xilinx. Por lo que, se deben establecer los mecanismos de re-configuración mediante el entorno de desarrollo Vivado.
 
 El dispositivo debe constar de los principales bloques constitutivos:
 \begin{itemize}
 	\item Interfaz de usuario (UI): debe proveer al operador un modo de configurar el filtro de procesamiento empleado en el dispositivo, disparar la ejecución de pruebas y obtener los archivos de reporte. Adicionalmente, el operador debe poder actualizar los archivos que conforman el banco de filtros con los que se puede configurar la lógica programable (PL).
 	\item Sistema de procesamiento (PS): debe contar con un sistema operativo que permita la ejecución de diferentes aplicaciones. Las mismas tienen como funcionalidades principales: controlar los periféricos del procesador, realizar la re-configuración de la PL, generar y administrar los reportes de pruebas, administrar el banco de filtros, configurar las pruebas a realizar y gestionar la comunicación con la PL mediante el bus AXI.
-	\item Lógica programable (PL): en la misma se debe disponer de una parte estática donde se instale un core de generación de estímulos y adquisición de datos para la realización de las pruebas sobre los filtros. Por otro lado, en la PL debe existir una sección configurable donde se deben instanciar los bloques de procesamiento.
+	\item Lógica programable (PL): en la misma se debe disponer de una parte estática donde se instancia una lógica de generación de estímulos y adquisición de datos para la realización de las pruebas sobre los filtros. Por otro lado, en la PL debe existir una sección configurable donde se deben instanciar los bloques de procesamiento.
 	\item Memoria estática (SD): espacio de memoria donde se se deben almacenar el banco de filtros, los reportes de las pruebas ejecutadas, archivos de configuración del sistema y los datos de las pruebas recientemente realizadas por el usuario.
 	\item Memoria RAM: a ser utilizada para la generación de reportes.
 \end{itemize}
@@ -144,13 +145,13 @@ El dispositivo debe constar de los principales bloques constitutivos:
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
 %Auspiciante   &  - 				  & -              	& -        	\\ \hline
 Cliente       & \clientename      &\empclientename	& -       	\\ \hline
-Impulsor      & - &\empclientename 	& -       	\\ \hline
+%Impulsor      & - &\empclientename 	& -       	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
 %Colaboradores & -                 & -             	& -       	\\ \hline
-Orientador    & \supname	      & \pertesupname 	& Director Trabajo final \\ \hline
+Orientador    & \supname	      & \pertesupname 	& Director Trabajo Final \\ \hline
 %Equipo        & -			      & -            	& -       	\\ \hline
 %Opositores    & -                 & -            	& -      	\\ \hline
-Usuario final & -                 & \empclientename	& -       	\\ \hline
+Usuario final & Operarios de sistemas especiales                 & \empclientename	& -       	\\ \hline
 \end{tabularx}
 \caption{Identificación de los interesados}
 \label{tab:interesados}
@@ -158,15 +159,15 @@ Usuario final & -                 & \empclientename	& -       	\\ \hline
 \end{table}
 
 \begin{itemize}
-	\item Cliente: profesional altamente calificado en la industria aeroespacial y defensa.
-	\item Orientador: \supname, no va a estar disponible hasta Octubre de 2021 y probablemente luego de esa fecha esté viviendo en Europa, por lo que hay que tener en cuenta ese hecho cuando se decida contactarlo.
-	\item Usuario final: profesional que aún no está definido por \empclientename.
+	\item Cliente: \clientename, es un profesional altamente calificado en la industria aeroespacial y defensa.
+	\item Orientador: \supname, es egresado de la Maestría de Sistemas Embebidos de la FIUBA, posee muchos años de experiencia desarrollando proyectos en la industria aeroespacial y de defensa. Probablemente esté viviendo en Europa, por lo que hay que tener en cuenta ese hecho cuando se decida contactarlo.
+	%\item Usuario final: profesional que aún no está definido por \empclientename.
 \end{itemize}
 
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-El propósito de este proyecto es realizar una evaluación tecnológica de la re-configuración dinámica de dispositivos de lógica programable, con el fin de establecer criterios de uso para desarrollos aeroespaciales y de radares. Adicionalmente, el cliente desea adquirir las capacidades de desarrollar una aplicación con esa tecnología de modo de subir el Technology Readiness Level (TRL) que se posee dentro de \empclientename.
+El propósito de este proyecto es realizar una evaluación tecnológica de la re-configuración dinámica de dispositivos de lógica programable, con el fin de establecer criterios de uso para desarrollos aeroespaciales y de radares. Adicionalmente, el cliente desea adquirir la capacidad de desarrollar una aplicación con esa tecnología de modo de subir el Technology Readiness Level (TRL) que se posee dentro de \empclientename.
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
@@ -196,7 +197,7 @@ El presente proyecto no incluye las siguientes funcionalidades:
 
 Se supone que el software correrá en una plataforma de hardware tipo System on Chip de la línea Xilinx Zynq (ARM+FPGA).
 
-El responsable del proyecto dispone de una placa ZedBoard para la realización del desarrollo, para que el banco de pruebas sea implementado en una tecnología más moderna, se debe evaluar si INVAP dispone de un hardware de desarrollo que contenga un MPSoC.
+El responsable del proyecto dispone de una placa ZedBoard para la realización del desarrollo. Con el fin de que el banco de pruebas sea implementado en una tecnología más moderna, se debe evaluar si INVAP dispone de un hardware de desarrollo que contenga un MPSoC.
 
 Se asume que se dispondrá de la plataforma de desarrollo durante el tiempo que dure el proyecto para poder depurar el diseño sobre el hardware.
 

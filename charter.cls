@@ -55,10 +55,12 @@
 \newcommand*{\fechaINICIO}[1]{\def\fechaInicioName{#1}}
 \newcommand*{\fechaFINALPlan}[1]{\def\fechaFinalPlanName{#1}}
 \newcommand*{\fechaFINALTrabajo}[1]{\def\fechaFinalName{#1}} 
+\newcommand*{\tituloAutor}[1]{\def\authortittle{#1}}
+\newcommand*{\tituloDirector}[1]{\def\directortittle{#1}}
+\newcommand*{\tituloCliente}[1]{\def\clienttittle{#1}}
 
 
-
-\def\@title{Plan de proyecto de Trabajo Final} %TODO ver si se puede agregar el campo con el nombre del autor acá
+\def\@title{Plan de proyecto de trabajo final} %TODO ver si se puede agregar el campo con el nombre del autor acá
 
 \AtBeginDocument{
   \hypersetup{
@@ -131,7 +133,7 @@
 
 \lhead{\includegraphics[width=4cm]{./Figuras/logoFIUBA.png}}
 \chead{}
-\rhead{\normalsize \textrm{Plan de proyecto de Trabajo final \\\degreename\\ \authorname}}
+\rhead{\normalsize \textrm{Plan de proyecto de trabajo final \\\degreename\\ \authorname}}
 \lfoot{ }
 \cfoot{\normalsize Página \thepage \hspace{1px} de \pageref{LastPage}}
 \rfoot{}
@@ -192,11 +194,11 @@
 	
 	\flushleft
 	{\normalsize Autor:\\}
-	{\Large \authorname \\}
+	{\Large \authortittle \authorname \\}
 	\vspace{1cm}
 	
 	{\normalsize Director:\\}
-	{\Large \supname \hspace{1px} (\pertesupname) \\}
+	{\Large \directortittle \supname \hspace{1px} (\pertesupname) \\}
 	%\vspace{2cm}
 	\ifbool{codirector}{% If the codirector class option has been specified
 	\vspace{10px}
@@ -208,7 +210,7 @@
 	
     \vfill
     \centering
-    \textit{Esta planificación fue realizada en el curso de Gestión de proyectos\\ entre el \fechaInicioName \hspace{1px} y el  \fechaFinalPlanName.}
+    \textit{Esta planificación fue realizada en el curso de gestión de proyectos\\ entre el \fechaInicioName \hspace{1px} y el  \fechaFinalPlanName.}
 		
 	\pagebreak
   }
