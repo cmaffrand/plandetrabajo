@@ -7,7 +7,7 @@
 \titulo{Cadenas de procesamiento re-configurables en SoC/MPSoC } 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
-\posgrado{Carrera de Especialización en Sistemas Embebidos} 
+\posgrado{Especialización en Sistemas Embebidos} 
 %\posgrado{Carrera de Especialización en Internet de las Cosas} 
 %\posgrado{Carrera de Especialización en Intelegencia Artificial}
 %\posgrado{Maestría en Sistemas Embebidos} 
@@ -203,6 +203,73 @@ Se asume que se dispondrá de la plataforma de desarrollo durante el tiempo que 
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
+
+\begin{enumerate}
+	
+	\item Requerimientos de interfaces externas
+		\begin{enumerate}
+			\item El sistema debe implementar una interfaz de usuario por consola.
+			\item La consola de interfaz de usuario debe ser implementada mediante UART y/o Ethernet.
+			\item En la partición estática de la PL se debe implementar una interfaz serie que tenga funcionamiento independiente de la PS.
+			\item En la partición estática de la PL se debe implementar una interfaz serie que tenga funcionamiento controlado por la PS.
+		\end{enumerate}
+	
+	\item Requerimientos de interfaces internas	
+		\begin{enumerate}
+			\item El software alocado en la PS debe comunicarse con la PL mediante una interfaz AXI.
+			\item El software alocado en la PS debe implementar un sistema de archivos.
+			\item El software alocado en la PS debe manejar una interfaz con una memoria RAM.
+			\item El software alocado en la debe tener una interfaz para re-configurar dinámicamente la porción de la PL dedicada para tal fin.
+			\item El software alocado en la PS debe tener una interfaz para configurar el sector de PL estático.
+		\end{enumerate}
+	
+	\item Requerimientos de almacenamiento de información (sistema de archivos)
+	\begin{enumerate}
+		\item El sistema debe almacenar filtros previamente generados en el sistema de archivos.
+		\item El sistema debe almacenar reportes de las pruebas ejecutadas en el sistema de archivos.
+		\item El sistema debe almacenar pre-configuraciones para el entorno de pruebas en el sistema de archivos.
+		\item El sistema debe almacenar el archivo de configuración del sector estático de la PL  en el sistema de archivos.
+		\item El sistema debe almacenar al menos dos archivos binarios de configuración del sector dinámico de la PL  en el sistema de archivos.
+		\item El sistema debe almacenar archivos de configuración (pesos de los filtros) del sector dinámico de la PL  en el sistema de archivos.
+		\item El sistema debe almacenar los datos obtenidos de al menos la última ejecución de pruebas en el sistema de archivos.
+	\end{enumerate}
+	
+	\item Requerimientos de HDL
+	
+	\item Requerimientos de configuración del entorno de pruebas
+	\begin{enumerate}
+		\item El sistema debe instanciar el archivo de configuración de sector estático de la PS.
+		\item El sistema debe permitir al usuario la selección del archivo de configuración de sector dinámico de la PL.
+		\item El sistema debe permitir al usuario la solicitud de re-configuración dinámica de la porción de la PL dedicada a tal fin.
+		\item El sistema debe ejecutar la re-configuración dinámica.
+		\item El sistema debe permitir al usuario la configuración de la prueba en la parte estática de la PS haciendo uso de los siguientes parámetros:
+		\begin{enumerate}[a.]
+			\item Duración de la prueba.
+			\item Ancho de palabra del filtro configurado.
+			\item Tipo de onda generada para la prueba.
+		\end{enumerate}
+		\item El sistema debe escribir los registros de configuración de los bloques implementados en la parte estática de la PS:
+		 \begin{enumerate}[a.]
+			\item Generación de datos de excitación.
+			\item Configuración de test.
+			\item Adquisición de datos.
+		\end{enumerate}
+		\item El sistema debe permitir al usuario la opción de ejecutar pruebas sin generar reportes o almacenar los datos generados. 
+		\item El sistema debe permitir al operador actualizar los archivos que conforman el banco de filtros. Dichos archivos son binarios previamente generados en la herramienta de síntesis de HDL.	
+	\end{enumerate}
+	
+	
+	\item Requerimientos funcionales (ejecución de pruebas)
+	\item Requerimientos de rendimiento
+	\item Requerimientos de diseño
+	\item Requerimientos de confiabilidad 
+	
+	\item Requerimientos de documentación
+	\item Requerimiento de testing...
+	\item Requerimientos de la interfaz...
+	\item Requerimientos interoperabilidad...
+	\item etc...
+\end{enumerate}
 
 \begin{consigna}{red}
 Los requerimientos deben numerarse y de ser posible estar agruparlos por afinidad, por ejemplo:

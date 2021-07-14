@@ -102,6 +102,7 @@
 \usepackage[section]{placeins} % evita que los floats se pueden ubicar más allá de un \section{•}
 \usepackage[labelsep=period]{caption}
 \usepackage{longtable}
+\usepackage[shortlabels]{enumitem}
 
 %\usepackage{tikz}
 %\usetikzlibrary{arrows, arrows.meta, calc, positioning, quotes, shapes}
@@ -131,9 +132,9 @@
 \fancyhf{} % clear all header and footers
 \pagestyle{fancy}
 
-\lhead{\includegraphics[width=4cm]{./Figuras/logoFIUBA.png}}
+\lhead{\includegraphics[width=4.5cm]{./Figuras/logoFIUBA.pdf}}
 \chead{}
-\rhead{\normalsize \textrm{Plan de proyecto de trabajo final \\\degreename\\ \authorname}}
+\rhead{\normalsize \textrm{Plan de proyecto de Trabajo final \\\degreename\\ \authorname}}
 \lfoot{ }
 \cfoot{\normalsize Página \thepage \hspace{1px} de \pageref{LastPage}}
 \rfoot{}
@@ -186,7 +187,7 @@
 \thispagestyle{empty}
 \centering
 	
-	\centering \includegraphics[width=.7\textwidth]{./Figuras/logoFIUBA.png}
+	\centering \includegraphics[width=.7\textwidth]{./Figuras/logoFIUBA.pdf}
 	
 	\vspace{3cm}
 	{\Huge \textbf{\ttitle}} \\
@@ -198,7 +199,7 @@
 	\vspace{1cm}
 	
 	{\normalsize Director:\\}
-	{\Large \directortittle \supname \hspace{1px} (\pertesupname) \\}
+	{\Large \directortittle  \supname \hspace{1px} (\pertesupname) \\}
 	%\vspace{2cm}
 	\ifbool{codirector}{% If the codirector class option has been specified
 	\vspace{10px}
