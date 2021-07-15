@@ -67,7 +67,7 @@
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{EBEBEB}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se genera la primera versión de los incisos 1, 2, 3, 4 y 5.                 & 04 de julio de 2021 \\ \hline
-2      & Se genera la primera versión de los incisos 6, 7 y 8. & 08 de julio de 2021 \\ \hline
+2      & Se genera la primera versión de los incisos 6, 7, 8 y 9. & 08 de julio de 2021 \\ \hline
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
 %		  Así                                                    & dd/mm/aaaa \\ \hline
@@ -87,7 +87,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá en \textcolor{black}{implementar un sistema que permita seleccionar bloques de procesamiento almacenado en memoria, realizar re-configuración dinámica en lógica programable y ofrecer un entorno de pruebas para el filtro seleccionado. Este entorno de pruebas debe ser capaz de generar una onda de excitación para el filtro, adquirir los datos filtrados y generar reportes de pruebas. Este desarrollo tiene como finalidad evaluar el uso de bancos de filtros mediante re-configuración dinámica de lógica programable para aplicaciones satelitales y de radar}, y tendrá un presupuesto preliminar estimado de \textcolor{red}{600} hs de trabajo y \textcolor{red}{\$ 0}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá en \textcolor{black}{implementar un sistema que permita seleccionar bloques de procesamiento almacenado en memoria, realizar re-configuración dinámica en lógica programable y ofrecer un entorno de pruebas para el filtro seleccionado. Este entorno de pruebas debe ser capaz de generar una onda de excitación para el filtro, adquirir los datos filtrados y generar reportes de pruebas. Este desarrollo tiene como finalidad evaluar el uso de bancos de filtros mediante re-configuración dinámica de lógica programable para aplicaciones satelitales y de radar}, y tendrá un presupuesto preliminar estimado de \textcolor{black}{800} hs de trabajo y \textcolor{black}{\$ 500}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -151,7 +151,7 @@ Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director Trabajo Final \\ \hline
 %Equipo        & -			      & -            	& -       	\\ \hline
 %Opositores    & -                 & -            	& -      	\\ \hline
-Usuario final & Operarios de sistemas especiales                 & \empclientename	& -       	\\ \hline
+Usuario final & Ingeniero de desarrollo                & \empclientename	& -       	\\ \hline
 \end{tabularx}
 \caption{Identificación de los interesados}
 \label{tab:interesados}
@@ -160,7 +160,7 @@ Usuario final & Operarios de sistemas especiales                 & \empclientena
 
 \begin{itemize}
 	\item Cliente: \clientename, es un profesional altamente calificado en la industria aeroespacial y defensa.
-	\item Orientador: \supname, es egresado de la Maestría de Sistemas Embebidos de la FIUBA, posee muchos años de experiencia desarrollando proyectos en la industria aeroespacial y de defensa. Probablemente esté viviendo en Europa, por lo que hay que tener en cuenta ese hecho cuando se decida contactarlo.
+	\item Orientador: \supname, es egresado de la Especialización en Sistemas Embebidos de la FIUBA, posee muchos años de experiencia desarrollando proyectos en la industria aeroespacial y de defensa. Probablemente esté viviendo en Europa, por lo que hay que tener en cuenta ese hecho cuando se decida contactarlo.
 	%\item Usuario final: profesional que aún no está definido por \empclientename.
 \end{itemize}
 
@@ -204,8 +204,22 @@ Se asume que se dispondrá de la plataforma de desarrollo durante el tiempo que 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{enumerate}
-	
+Para comprender los requerimientos del proyecto se enumeran los siguientes acrónimos:
+
+\begin{itemize}
+		\item API: Application Programming Interface
+		\item AXI: Advanced eXtensible Interface
+		\item HDL: Hardware Description Language
+		\item MPSoC: MultiProcessor System on a Chip
+		\item PL: Programmable Logic en un SoC u MPSoC
+		\item PS: Processing System en un SoC o MPSoC
+		\item SoC: System on a Chip
+		\item TBD: To Be Defined
+		\item UART: Universal Asynchronous Receiver-Trasmitter.
+		\item VHDL: Very High Speed Integrated Circuit Hardware Description Language
+\end{itemize}
+
+\begin{enumerate}	
 	\item Requerimientos de interfaces externas
 		\begin{enumerate}
 			\item El sistema debe implementar una interfaz de usuario por consola.
@@ -217,7 +231,7 @@ Se asume que se dispondrá de la plataforma de desarrollo durante el tiempo que 
 	\item Requerimientos de interfaces internas	
 		\begin{enumerate}
 			\item El software alocado en la PS debe comunicarse con la PL mediante una interfaz AXI.
-			\item El software alocado en la PS debe implementar un sistema de archivos.
+			\item El software alocado en la PS debe implementar un sistema de archivos en una memoria SD.
 			\item El software alocado en la PS debe manejar una interfaz con una memoria RAM.
 			\item El software alocado en la debe tener una interfaz para re-configurar dinámicamente la porción de la PL dedicada para tal fin.
 			\item El software alocado en la PS debe tener una interfaz para configurar el sector de PL estático.
@@ -225,16 +239,30 @@ Se asume que se dispondrá de la plataforma de desarrollo durante el tiempo que 
 	
 	\item Requerimientos de almacenamiento de información (sistema de archivos)
 	\begin{enumerate}
-		\item El sistema debe almacenar filtros previamente generados en el sistema de archivos.
 		\item El sistema debe almacenar reportes de las pruebas ejecutadas en el sistema de archivos.
 		\item El sistema debe almacenar pre-configuraciones para el entorno de pruebas en el sistema de archivos.
 		\item El sistema debe almacenar el archivo de configuración del sector estático de la PL  en el sistema de archivos.
-		\item El sistema debe almacenar al menos dos archivos binarios de configuración del sector dinámico de la PL  en el sistema de archivos.
+		\item El sistema debe almacenar al menos dos archivos binarios (filtros previamente generados) de configuración del sector dinámico de la PL  en el sistema de archivos.
 		\item El sistema debe almacenar archivos de configuración (pesos de los filtros) del sector dinámico de la PL  en el sistema de archivos.
 		\item El sistema debe almacenar los datos obtenidos de al menos la última ejecución de pruebas en el sistema de archivos.
 	\end{enumerate}
 	
-	\item Requerimientos de HDL
+	\item Requerimientos generales de HDL
+	\begin{enumerate}
+		\item La lógica programable debe ser codificada en lenguaje VHDL.
+		\item En la PL se debe generar una partición para uso dinámico.
+		\item En la PL se debe generar una partición para uso estático.
+		\item Para la comunicación entre bloques de lógica se debe utilizar el bus AXI.
+	\end{enumerate}
+	
+	\item Requerimientos de HDL estático
+	\begin{enumerate}		
+		\item En la partición estática se debe implementar una funcionalidad de lógica programable que sea independiente de la PS.
+		\item En la partición estática se debe implementar una funcionalidad de lógica programable que sea manejada por la PS.
+		\item En la partición estática se debe implementar una funcionalidad de lógica programable para la generación de señales de excitación de los filtros.
+		\item En la partición estática se debe implementar una funcionalidad de lógica programable para la adquisición de datos generados por las salidas de los filtros.
+		\item En la partición estática se debe implementar una funcionalidad de lógica programable que permita la configuración de las pruebas a realizar en el banco de filtros.
+	\end{enumerate}
 	
 	\item Requerimientos de configuración del entorno de pruebas
 	\begin{enumerate}
@@ -260,116 +288,143 @@ Se asume que se dispondrá de la plataforma de desarrollo durante el tiempo que 
 	
 	
 	\item Requerimientos funcionales (ejecución de pruebas)
+	\begin{enumerate}
+		\item El sistema debe permitir al usuario la solicitud de ejecución de pruebas en la PL. Tales pruebas pueden ser:
+		\begin{enumerate}[a.]
+			\item Respuesta de filtro a estímulos generados.
+			\item Comportamiento de la lógica en la PL estática cuando se realiza la configuración dinámica.
+			\item Evaluación del tiempo de re-configuración.
+		\end{enumerate}
+		\item El software del PS debe escribir los registros de los bloques de lógica programable de generación de datos de excitación, configuración de test y adquisición de datos implementados en la parte estática de la PS de modo que se dispare la ejecución de la prueba configurada.
+		\item El software del PS debe capturar los datos adquiridos tras la ejecución de la prueba y almacenarlos en el sistema de archivos.
+		\item El software del PS debe leer los registros de los bloques generación de datos de excitación, configuración de test y adquisición de datos.
+		\item El software del PS debe generar un reporte de pruebas conteniendo mínimamente la siguiente información:
+		\begin{enumerate}[a.]
+			\item Fecha de ejecución.
+			\item Tiempo de ejecución.
+			\item Configuración del sistema de pruebas.
+			\item Resultado de las pruebas realizadas.
+			\item Filtro seleccionado e instanciado en la PL dinámica.
+			\item Versión del archivo instanciado en la PL estática.	
+		\end{enumerate}
+		\item El software del PS debe controlar que la prueba configurada por el usuario no genere datos superiores a un tamaño de TBD kBytes.
+	\end{enumerate}
 	\item Requerimientos de rendimiento
+	\begin{enumerate}
+		\item Una vez iniciada una prueba el reporte de la misma deberá ser generado en menos de un minuto.
+	\end{enumerate}
 	\item Requerimientos de diseño
+	\begin{enumerate}
+		\item Se debe utilizar la placa de desarrollo ZedBoard para implementar el desarrollo en un SoC. La placa de desarrollo podría ser modificada por una que contenga un MPSoC, de acuerdo a la disponibilidad de la misma en INVAP.
+	\end{enumerate}
 	\item Requerimientos de confiabilidad 
-	
+	\begin{enumerate}
+		\item El sistema debe asegurar su correcto funcionamiento en condiciones normales de operación durante al menos una semana de uso continuo (sin ser reiniciado).
+	\end{enumerate}
 	\item Requerimientos de documentación
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
+	\begin{enumerate}
+		\item Se debe generar un manual de usuario para el sistema de pruebas de bancos de filtros re-configurables.
+	\end{enumerate}
 \end{enumerate}
-
-\begin{consigna}{red}
-Los requerimientos deben numerarse y de ser posible estar agruparlos por afinidad, por ejemplo:
-
-\begin{enumerate}
-	\item Requerimientos funcionales
-		\begin{enumerate}
-			\item El sistema debe...
-			\item Tal componente debe...
-			\item El usuario debe poder...
-		\end{enumerate}
-	\item Requerimientos de documentación
-		\begin{enumerate}
-			\item Requerimiento 1
-			\item Requerimiento 2 (prioridad menor)
-		\end{enumerate}
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
-\end{enumerate}
-
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
-
-No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!
-
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-	\item Ser breve y conciso (nadie lee cosas largas). 
-	\item Ser específico: no dejar lugar a confusiones.
-	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
-
-\end{consigna}
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna}{red}
-Descripción: En esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
+\begin{itemize}
+	\item Como \emph{ingeniero de desarrollo} quiero \emph{realizar la configuración dinámica en lógica programable} para evaluar para evaluar su implementación en diseños complejos.
+	 
+\emph{Story points: 13}, la historia de usuario permite evaluar la complejidad de generar diseños de lógica programable con re-configuración parcial, para con esto evaluar riesgos, ventajas y desventajas de su utilización en proyectos de alto costo y alcance.	
+	
+	\item Como \emph{ingeniero de desarrollo} quiero \emph{realizar la configuración dinámica en lógica programable} para evaluar el tiempo que toma dicho proceso. 
+	
+\emph{Story points: 8}, la historia de usuario permite dimensionar el tiempo de re-configuración que es un dato de importancia para la evaluación de su uso en sistemas de procesamiento que sean demandantes en su tiempo de ejecución.
+	
+	\item Como \emph{ingeniero de desarrollo} quiero \emph{realizar la configuración dinámica en lógica programable} para evaluar el funcionamiento del resto del dispositivo de lógica programable durante el proceso de re-configuración. 
+	
+\emph{Story points: 5}, la historia de usuario permite validar que no se afecta el funcionamiento de la lógica adyacente durante el proceso de re-configuración.
 
-El formato propuesto es: "como [rol] quiero [tal cosa] para [tal otra cosa]."
+	\item Como \emph{ingeniero de desarrollo} quiero \emph{realizar pruebas de desempeño sobre filtros de procesamiento en hardware} para evaluar y caracterizar su funcionamiento.
+	 
+\emph{Story points: 5}, la historia de usuario permite generar una métrica de funcionamiento de los filtros.
+\end{itemize}
 
-Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia
-\end{consigna}
+	
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
 
-\begin{consigna}{red}
-
-Los entregables del proyecto son (ejemplo):
+Los entregables del proyecto son:
 
 \begin{itemize}
-	\item Manual de uso
-	\item Diagrama de circuitos esquemáticos
-	\item Código fuente del firmware
-	\item Diagrama de instalación
-	\item Informe final
-	\item etc...
+	\item Código fuente en el repositorio con control de versiones \emph{Github}.
+	\item Documentación del código con \emph{Doxygen}.
+	\item Manual de usuario del sistema de pruebas.
+	\item Ficha de lecciones aprendidas durante el desarrollo.
+	\item Código fuente del firmware y software desarrollado para el PS.
+	\item Código fuente del HDL generado para la PL estática.
+	\item Código fuente de los HDLs generados para la PL dinámica.
+	\item Memoria del Trabajo final.
 \end{itemize}
-
-\end{consigna}
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
-\begin{consigna}{red}
-El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
-
 \begin{enumerate}
-\item Grupo de tareas 1
+
+	\item Planificación
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
+		\item Estudio del problema general (40 horas)
+		\item Relevamiento y estudio de los requerimientos (20 horas)
+		\item Documento de requerimientos y especificación del trabajo (20 horas)
+		\item Planificación del proyecto (20 horas)		
 	\end{enumerate}
-\item Grupo de tareas 2
+	
+	\item Proceso de adquisición de conocimientos
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
+		\item Estudio del SoC/MPSoC (20 horas)
+		\item Estudio de técnicas de re-configuración parcial (40 horas)
+		\item implementación de sistemas operativos y sistemas de archivos en SoC/MPSoC (40 horas)
+		\item Estudio de periférico  UART (10 horas)
+		\item Estudio de periférico  Ethernet (20 horas)
+		\item Estudio de periférico  RAM (20 horas)
+		\item Estudio de periférico  AXI (10 horas)
+		\item Estudio de periférico  SD (20 horas)
 	\end{enumerate}
-\item Grupo de tareas 3
+	
+	\item Desarrollo de aplicaciones
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
-	\item Tarea 4 (tantas hs)
-	\item Tarea 5 (tantas hs)
+		\item Comunicación con PL (40 horas)
+		\item Consola interprete de comandos de usuario (20 horas)
+		\item Configurador de PL estática (20 horas)
+		\item Configurador de PL dinámica (20 horas)
+		\item Configurador y ejecutor de pruebas (40 horas)
+		\item Generador de reportes (40 horas)
 	\end{enumerate}
+	
+	\item Desarrollos de HDL
+	\begin{enumerate}
+		\item Partición PL (40 horas)		
+		\item Diseño puerto de comunicación en PL estática de funcionamiento independiente de la PS (10 horas)
+		\item Diseño puerto de comunicación en PL estática de funcionamiento dependiente de la PS (20 horas)
+		\item Configurador y ejecutor de pruebas (40 horas)
+		\item Generador de datos de excitación (30 horas)
+		\item Adquisidor de datos (30 horas)
+		\item Bus AXI e integración general (40 horas)
+		\item Filtros de procesamiento de datos para demo de funcionamiento del sistema (40 horas)
+	\end{enumerate}
+	
+	\item Proceso de cierre
+	\begin{enumerate}
+		\item Memoria de Trabajo final (40 horas)
+		\item Manual de usuario (30 horas)
+		\item Ficha de lecciones aprendidas (10 horas)
+		\item Presentación y defensa pública (10 horas)
+	\end{enumerate}
+	
+	
 \end{enumerate}
 
-Cantidad total de horas: (tantas hs)
-
-Se recomienda que no haya ninguna tarea que lleve más de 40 hs. 
-
-\end{consigna}
+Cantidad total de horas: (800 hs)
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
