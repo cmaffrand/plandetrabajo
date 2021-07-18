@@ -58,6 +58,9 @@
 \newcommand*{\tituloAutor}[1]{\def\authortittle{#1}}
 \newcommand*{\tituloDirector}[1]{\def\directortittle{#1}}
 \newcommand*{\tituloCliente}[1]{\def\clienttittle{#1}}
+\newcommand*{\colorTabla}[1]{\def\tablecolor{#1}}
+\newcommand*{\costoProyecto}[1]{\def\projectcost{#1}}
+\newcommand*{\esfuerzoProyecto}[1]{\def\projecteffort{#1}}
 
 
 \def\@title{Plan de proyecto de Trabajo final} %TODO ver si se puede agregar el campo con el nombre del autor acá
@@ -180,6 +183,9 @@
 % Use cool footnotes
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \raggedbottom
+
+%---------- Definición de color de las tablas ----------
+\colorTabla{EBEBEB}
 
 % PORTADA
 \def\@maketitle{%

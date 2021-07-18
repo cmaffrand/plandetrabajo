@@ -63,8 +63,8 @@
 \centering
 \begin{tabularx}{\linewidth}{@{}|c|X|c|@{}}
 \hline
-\rowcolor[HTML]{EBEBEB} 
-Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{EBEBEB}Detalles de los cambios realizados} & Fecha      \\ \hline
+\rowcolor[HTML]{\tablecolor} 
+Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{\tablecolor}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se genera la primera versión de los incisos 1, 2, 3, 4 y 5.                 & 04 de julio de 2021 \\ \hline
 2      & Se genera la primera versión de los incisos 6, 7, 8 y 9. & 08 de julio de 2021 \\ \hline
@@ -88,7 +88,10 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá en \textcolor{black}{implementar un sistema que permita seleccionar bloques de procesamiento almacenado en memoria, realizar re-configuración dinámica en lógica programable y ofrecer un entorno de pruebas para el filtro seleccionado. Este entorno de pruebas debe ser capaz de generar una onda de excitación para el filtro, adquirir los datos filtrados y generar reportes de pruebas. Este desarrollo tiene como finalidad evaluar el uso de bancos de filtros mediante re-configuración dinámica de lógica programable para aplicaciones satelitales y de radar}, y tendrá un presupuesto preliminar estimado de \textcolor{black}{800} hs de trabajo y \textcolor{black}{\$ 500}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+\costoProyecto{4.429.000} 
+\esfuerzoProyecto {800}
+
+Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá en \textcolor{black}{implementar un sistema que permita seleccionar bloques de procesamiento almacenado en memoria, realizar re-configuración dinámica en lógica programable y ofrecer un entorno de pruebas para el filtro seleccionado. Este entorno de pruebas debe ser capaz de generar una onda de excitación para el filtro, adquirir los datos filtrados y generar reportes de pruebas. Este desarrollo tiene como finalidad evaluar el uso de bancos de filtros mediante re-configuración dinámica de lógica programable para aplicaciones satelitales y de radar}, y tendrá un presupuesto preliminar estimado de \textcolor{black}{\projecteffort} horas de trabajo y \textcolor{black}{\$ \projectcost}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -142,7 +145,7 @@ El dispositivo debe constar de los principales bloques constitutivos:
 \begin{center}
 \begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
 \hline
-\rowcolor[HTML]{EBEBEB} 
+\rowcolor[HTML]{\tablecolor} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
 %Auspiciante   &  - 				  & -              	& -        	\\ \hline
 Cliente       & \clientename      &\empclientename	& -       	\\ \hline
@@ -427,7 +430,7 @@ Los entregables del proyecto son:
 	
 \end{enumerate}
 
-Cantidad total de horas: (800 hs)
+Cantidad total de trabajo estimado para el proyecto: ({\projecteffort} horas)
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
@@ -462,73 +465,62 @@ En el diagrama de Gantt no se observan tareas realizadas de manera paralela,  es
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
 
-\begin{consigna}{red}
-Si el proyecto es complejo entonces separarlo en partes:
-\begin{itemize}
-	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
-	\item El desglose detallado del subtotal de cada una de las áreas.
-\end{itemize}
-
-IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
-
-\end{consigna}
-
 \begin{table}[htpb]
 \centering
 \begin{tabularx}{\linewidth}{@{}|X|c|r|r|@{}}
 \hline
-\rowcolor[HTML]{C0C0C0} 
-\multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS DIRECTOS} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{\tablecolor} 
+\multicolumn{4}{|l|}{\cellcolor[HTML]{\tablecolor}COSTOS DIRECTOS} \\ \hline
+\rowcolor[HTML]{\tablecolor} 
 Descripción &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{\tablecolor}Cantidad} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{\tablecolor}Valor unitario [\$]} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{\tablecolor}Valor total [\$]} \\ \hline
+Ingeniería & 
+  \multicolumn{1}{c|}{800 horas} &
+  \multicolumn{1}{c|}{3.000} &
+  \multicolumn{1}{c|}{2.400.000} \\ \hline
+Imprevistos &
   \multicolumn{1}{c|}{} &
   \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
-\multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
+  \multicolumn{1}{c|}{160.000} \\ \hline
+\multicolumn{3}{|l|}{SUBTOTAL} &
+  \multicolumn{1}{c|}{2.560.000} \\ \hline
+\rowcolor[HTML]{\tablecolor} 
+\multicolumn{4}{|l|}{\cellcolor[HTML]{\tablecolor}COSTOS INDIRECTOS} \\ \hline
+\rowcolor[HTML]{\tablecolor} 
 Descripción &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-\multicolumn{1}{|l|}{} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{\tablecolor}Cantidad} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{\tablecolor}Valor unitario [\$]} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{\tablecolor}Valor total [\$]} \\ \hline
+Costos indirectos &
    &
    &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
-\rowcolor[HTML]{C0C0C0}
-\multicolumn{3}{|c|}{TOTAL} &
-   \\ \hline
+   \multicolumn{1}{c|}{1.320.000} \\ \hline
+\multicolumn{3}{|l|}{SUBTOTAL} &
+  \multicolumn{1}{c|}{1.320.000} \\ \hline
+  \rowcolor[HTML]{\tablecolor} 
+  \multicolumn{4}{|l|}{\cellcolor[HTML]{\tablecolor}MATERIALES} \\ \hline
+  \rowcolor[HTML]{\tablecolor} 
+  Descripción &
+	\multicolumn{1}{c|}{\cellcolor[HTML]{\tablecolor}Cantidad} &
+	\multicolumn{1}{c|}{\cellcolor[HTML]{\tablecolor}Valor unitario [\$]} &
+	\multicolumn{1}{c|}{\cellcolor[HTML]{\tablecolor}Valor total [\$]} \\ \hline
+ZCU102 Development Board / ZedBoard & 
+	\multicolumn{1}{c|}{1} &
+	\multicolumn{1}{c|}{249.000} &
+	\multicolumn{1}{c|}{249.000} \\ \hline
+PC de desarrollo &
+	\multicolumn{1}{c|}{1} &
+	\multicolumn{1}{c|}{300.000} &
+	\multicolumn{1}{c|}{300.000} \\ \hline
+  \multicolumn{3}{|l|}{SUBTOTAL} &
+	\multicolumn{1}{c|}{549.000} \\ \hline
+\rowcolor[HTML]{\tablecolor}
+\multicolumn{3}{|l|}{TOTAL} &
+\multicolumn{1}{c|}{\projectcost}  \\ \hline
 \end{tabularx}%
 \end{table}
-
 
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
