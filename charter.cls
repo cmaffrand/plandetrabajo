@@ -60,7 +60,7 @@
 \newcommand*{\tituloCliente}[1]{\def\clienttittle{#1}}
 
 
-\def\@title{Plan de proyecto de trabajo final} %TODO ver si se puede agregar el campo con el nombre del autor acá
+\def\@title{Plan de proyecto de Trabajo final} %TODO ver si se puede agregar el campo con el nombre del autor acá
 
 \AtBeginDocument{
   \hypersetup{
