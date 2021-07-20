@@ -40,6 +40,9 @@
 \fechaFINALPlan{24 de agosto de 2021} 	%Fecha de final de cursada de GdP
 \fechaFINALTrabajo{24 de junio de 2022}	%Fecha de defensa pública del trabajo final
 
+% Definición de constantes que van a ser utilizadas dentro del proyectos
+\costoProyecto{4.429.000} 
+\esfuerzoProyecto{800}
 
 \begin{document}
 
@@ -53,10 +56,8 @@
 }
 \pagebreak
 
-
 \section*{Registros de cambios}
 \label{sec:registro}
-
 
 \begin{table}[ht]
 \label{tab:registro}
@@ -68,12 +69,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{\tablecolor}Detalles de los cam
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se genera la primera versión de los incisos 1, 2, 3, 4 y 5.                 & 04 de julio de 2021 \\ \hline
 2      & Se genera la primera versión de los incisos 6, 7, 8 y 9. & 08 de julio de 2021 \\ \hline
-3      & Se genera la primera versión de los incisos 10, 11, 12 y 13. & 17 de julio de 2021 \\ \hline
-%		  Se puede agregar algo más \newline
-%		  En distintas líneas \newline
-%		  Así                                                    & dd/mm/aaaa \\ \hline
-%3      & Se completa hasta el punto 11 inclusive                & dd/mm/aaaa \\ \hline
-%4      & Se completa el plan	                                 & dd/mm/aaaa \\ \hline
+3      & Se genera la primera versión de los incisos 10, 11 y 12. & 17 de julio de 2021 \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -87,10 +83,6 @@ Buenos Aires, \fechaInicioName
 \end{flushright}
 
 \vspace{2cm}
-
-% Definición de constantes que van a ser utilizadas dentro del proyectos
-\costoProyecto{4.429.000} 
-\esfuerzoProyecto{800}
 
 Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá en \textcolor{black}{implementar un sistema que permita seleccionar bloques de procesamiento almacenado en memoria, realizar re-configuración dinámica en lógica programable y ofrecer un entorno de pruebas para el filtro seleccionado. Este entorno de pruebas debe ser capaz de generar una onda de excitación para el filtro, adquirir los datos filtrados y generar reportes de pruebas. Este desarrollo tiene como finalidad evaluar el uso de bancos de filtros mediante re-configuración dinámica de lógica programable para aplicaciones satelitales y de radar}, y tendrá un presupuesto preliminar estimado de \textcolor{black}{\projecteffort} horas de trabajo y \textcolor{black}{\$ \projectcost}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
@@ -318,18 +310,22 @@ Para comprender los requerimientos del proyecto se enumeran los siguientes acró
 		\end{enumerate}
 		\item El software del PS debe controlar que la prueba configurada por el usuario no genere datos superiores a un tamaño de 10 kBytes.
 	\end{enumerate}
+
 	\item Requerimientos de rendimiento
 	\begin{enumerate}
 		\item Una vez iniciada una prueba el reporte de la misma deberá ser generado en menos de un minuto.
 	\end{enumerate}
+
 	\item Requerimientos de diseño
 	\begin{enumerate}
 		\item Se debe utilizar la placa de desarrollo ZedBoard para implementar el desarrollo en un SoC. La placa de desarrollo podría ser modificada por una que contenga un MPSoC, de acuerdo a la disponibilidad de la misma en INVAP.
 	\end{enumerate}
+
 	\item Requerimientos de confiabilidad 
 	\begin{enumerate}
 		\item El sistema debe asegurar su correcto funcionamiento en condiciones normales de operación durante al menos una semana de uso continuo (sin ser reiniciado).
 	\end{enumerate}
+
 	\item Requerimientos de documentación
 	\begin{enumerate}
 		\item Se debe generar un manual de usuario para el sistema de pruebas de bancos de filtros re-configurables.
@@ -406,8 +402,10 @@ A continuación se presentan cuatro historias de usuario para el proyecto. Vale 
 Los entregables del proyecto son:
 
 \begin{itemize}
-	\item Código fuente en el repositorio con control de versiones \emph{Github}.
-	\item Documentación del código con \emph{Doxygen}.
+	\item Código fuente c en el repositorio con control de versiones \emph{Github}.
+	\item Documentación del código c con \emph{Doxygen}.
+	\item Código fuente VHDL en el repositorio con control de versiones \emph{Github}.
+	\item Documentación del código VHDL con \emph{TerosHDL}.
 	\item Manual de usuario del sistema de pruebas.
 	\item Ficha de lecciones aprendidas durante el desarrollo.
 	\item Código fuente del firmware y software desarrollado para el PS.
