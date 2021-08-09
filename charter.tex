@@ -580,21 +580,29 @@ Cabe destacar que el trabajo va a ser realizado Ad-Honorem por el responsable y 
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
 
+\emph{Criterio de evaluación de riesgo:} Los riesgos identificados en esta sección son cuantificados mediante los siguientes indicadores:
+
+\emph{Severidad (S):} índice de severidad. Será mayor cuanto más grande sea el impacto sobre el proyecto.
+
+\emph{Ocurrencia (O):} probabilidad de ocurrencia del riesgo.
+
+A cada uno de estos índices se le asigna un valor del 1 al 10. El número que resulta del producto de ambos es la prioridad del riesgo (RPN = S*O).
+
 \begin{enumerate}[]
 	\item Identificación de los riesgos y estimación de sus consecuencias:
 	\begin{enumerate}[$\text{Riesgo}$ 1:, leftmargin=*,align=left] 
 		
-		\item Se cuenta con solo una ZedBoard propiedad del responsable del trabajo.
+		\item No poder contar con la placa de desarrollo.
 		\begin{itemize}
 			\item Severidad (S): 9
 			
-			La pérdida, extravío o rotura de la placa de desarrollo generaría una imposibilidad de continuar con el avance del diseño en etapas avanzadas del proyecto.
+			Se cuenta con solo una sola ZedBoard por lo que la pérdida, extravío o rotura de la misma generaría una imposibilidad de continuar con el avance del diseño en etapas avanzadas del proyecto.
 			\item Probabilidad de ocurrencia (O): 4
 			
 			El hardware de desarrollo puede sufrir averías dado que es utilizado en un escritorio y no en un laboratorio. Así mismo, puede extraviarse o ser robado.
 		\end{itemize}
 
-		\item Recurso único de ejecución del proyecto.
+		\item Surgimiento de problemas de índole personal que no permitan cumplir con la planificación.
 		\begin{itemize}
 			\item Severidad (S): 10
 			
@@ -604,7 +612,7 @@ Cabe destacar que el trabajo va a ser realizado Ad-Honorem por el responsable y 
 			Se debe a que son hechos fortuitos, no conocidos previamente por lo que la probabilidad de ocurrencia es baja.
 		\end{itemize}
 
-		\item Licencias de entornos de desarrollo.
+		\item No contar con las licencias de entornos de desarrollo.
 		\begin{itemize}
 			\item Severidad (S): 7
 			
@@ -654,11 +662,11 @@ Cabe destacar que el trabajo va a ser realizado Ad-Honorem por el responsable y 
 	\hline
 	\rowcolor[HTML]{\tablecolor} 
 	Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-	Una sola ZedBoard propiedad del responsable del trabajo & 9 & 4  & \color{black}{\textbf{36}} & 9 & 1 & \color{black}{\emph{9}} \\ \hline
-	Recurso único de ejecución del proyecto & 10 & 2 & \color{black}{20} & 10 & 2 & \color{black}{\emph{20}} \\ \hline
-	Licencias de entornos de desarrollo & 7 & 4 & \color{black}{\textbf{28}} & 5 & 4 & \color{black}{\emph{20}} \\ \hline
+	No poder contar con la placa de desarrollo & 9 & 4  & \color{black}{\textbf{36}} & 9 & 1 & \color{black}{\emph{9}} \\ \hline
+	Problemas de índole personal & 10 & 2 & \color{black}{20} & 10 & 2 & \color{black}{\emph{20}} \\ \hline
+	No contar con las licencias de entornos de desarrollo & 7 & 4 & \color{black}{\textbf{28}} & 5 & 4 & \color{black}{\emph{20}} \\ \hline
 	Recurso sin experiencia en el manejo de SO & 6 & 8 & \color{black}{\textbf{40}} & 6 & 2 & \color{black}{\emph{12}} \\ \hline
-	Dificultades funcionales entre PL estática y PL dinámica & 7 & 4 & \color{black}{\textbf{28}} & 4 & 4 & \color{black}{\emph{16}} \\ \hline
+	Dificultades funcionales entre PL estática y PL dinámica & 7 & 4 & \color{black}{\textbf{28}} & 7 & 2 & \color{black}{\emph{14}} \\ \hline
 	Tiempos de desarrollo & 7 & 7 & \color{black}{\textbf{49}} & 5 & 4 & \color{black}{\emph{20}} \\ \hline
 	\end{tabularx}%
 	\end{table}
@@ -669,7 +677,7 @@ Cabe destacar que el trabajo va a ser realizado Ad-Honorem por el responsable y 
 	
 	\begin{enumerate}[$\text{Riesgo}$ 1:, leftmargin=*,align=left] 
 		
-		\item Se cuenta con solo una ZedBoard propiedad del responsable del trabajo.
+		\item No poder contar con la placa de desarrollo.
 		\begin{itemize}
 			\item Severidad (S): 9
 			
@@ -678,18 +686,11 @@ Cabe destacar que el trabajo va a ser realizado Ad-Honorem por el responsable y 
 			
 			\emph{Mitigación:} INVAP cuenta con numerosas placas de desarrollo que podrían ser utilizadas para el proyecto.
 		\end{itemize}
+	\end{enumerate}
 
-		\item Recurso único de ejecución del proyecto.
-		\begin{itemize}
-			\item Severidad (S): 10
-			
-			No se registran cambios.
-			\item Probabilidad de ocurrencia (O): 2
-			
-			No se registran cambios.
-		\end{itemize}
+	\begin{enumerate}[$\text{Riesgo}$ 3:, leftmargin=*,align=left]
 
-		\item Licencias de entornos de desarrollo.
+		\item No contar con las licencias de entornos de desarrollo.
 		\begin{itemize}
 			\item Severidad (S): 5
 			
@@ -698,7 +699,10 @@ Cabe destacar que el trabajo va a ser realizado Ad-Honorem por el responsable y 
 			
 			No se registran cambios.
 		\end{itemize}
-	
+	\end{enumerate}
+
+	\begin{enumerate}[$\text{Riesgo}$ 4:, leftmargin=*,align=left]
+
 		\item Recurso sin experiencia en el manejo de sistemas operativos y aplicaciones en sistemas operativos.
 		\begin{itemize}
 			\item Severidad (S): 6
@@ -708,16 +712,22 @@ Cabe destacar que el trabajo va a ser realizado Ad-Honorem por el responsable y 
 			
 			\emph{Mitigación:} durante el transcurso de la especialización existen tres asignaturas sobre sistemas operativos y hay una optativa sobre aplicaciones para sistemas operativos.
 		\end{itemize}
+	\end{enumerate}
+
+	\begin{enumerate}[$\text{Riesgo}$ 5:, leftmargin=*,align=left]
 
 		\item Dificultades funcionales entre PL estática y PL dinámica.
 		\begin{itemize}
-			\item Severidad (S): 4
-			
-			\emph{Mitigación:} se realiza de manera temprana esta tarea para estimar si hay necesidad de ajustar la arquitectura del banco de pruebas.
-			\item Probabilidad de ocurrencia (O): 4
+			\item Severidad (S): 7
 			
 			No se registran cambios.
+			\item Probabilidad de ocurrencia (O): 2
+			\emph{Mitigación:} se realiza de manera temprana esta tarea para estimar si hay necesidad de ajustar la arquitectura del banco de pruebas.
+			
 		\end{itemize}
+	\end{enumerate}
+
+	\begin{enumerate}[$\text{Riesgo}$ 6:, leftmargin=*,align=left]
 
 		\item Tiempos de desarrollo.
 		\begin{itemize}
@@ -784,7 +794,7 @@ Cabe destacar que el trabajo va a ser realizado Ad-Honorem por el responsable y 
 	\item Requerimientos de rendimiento
 	\begin{itemize}
 		\item \emph{Verificación:} se generan reportes en donde se muestra el tiempo de procesamiento.
-		\item \emph{Validación:} se generan reportes en donde se muestra el tiempo de procesamiento.
+		\item \emph{Validación:} se exhiben los reportes en donde se muestra el tiempo de procesamiento.
 	\end{itemize}
 
 	\item Requerimientos de diseño
